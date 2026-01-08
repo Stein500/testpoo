@@ -1,0 +1,125 @@
+const bcrypt = require('bcryptjs')
+
+// VRAIS HASHS BCRYPT GÉNÉRÉS
+const hashedPasswords = {
+  'fifamè': '$2a$10$7WOwYjU6unkaqHJxYoLc.u7MFaWkZR9gPt2dE2ktueAERRE6phIIq',
+  'emmanuel': '$2a$10$ZCseLC9SMAT2bUXjCj5ly.qaTWNtsInQ.owc1.WD.uvTm4XSDV5Nq',
+  'yinki': '$2a$10$zd0hywqgKc9Kg08vFwfs3uHGKSgnM0fu9NdqrcMTJMr671e/SsAnG',
+  'rahama': '$2a$10$u8PRxIcWVHiCz9SINOE79uENfciijdeyMp3.hGQTScJI4qMu2Tk82',
+  'noham': '$2a$10$iA.sKBY6KWve0znhUqfK1.JF7Xwibsayzpjg1VpfsEUfE3Nl/4u8q',
+  'queen': '$2a$10$UBOOyaWPvRiNoPeSuD0GxeOrGibb/4t81CRDm81XZEvj9m1/2qpd6',
+  'mékaddishem': '$2a$10$KeAfVhyKJQePeoQf7QOFc.BwWIEyygWeS702mDx0UrP1whuojhSkq',
+  'faith': '$2a$10$0APww/vqjXFp0kbGtzPO1O7nYnUhlx8CQQkz9/CnqZ1krPZy.CfNC',
+  'péniel': '$2a$10$gp/iKyXHqtJgDG89uoJQVekhaS5Wz5yAFZKFAimNWaS/1Gpk.Oym6',
+  'naelle': '$2a$10$MMDAT.GL1R2RH4CuBLK7FOKGr6lO/owORrrb2/XBtygp0pMDoa5da',
+}
+
+// Fonction pour vérifier le mot de passe
+async function verifyPassword(password, hash) {
+  return await bcrypt.compare(password, hash)
+}
+
+// Fonction pour générer un hash (à utiliser une seule fois pour créer les hashs)
+async function hashPassword(password) {
+  return await bcrypt.hash(password, 10)
+}
+
+// Utilisateurs de la classe CE1
+const users = [
+  {
+    matricule: "CE1-1",
+    passwordHash: hashedPasswords['fifamè'],
+    nomEleve: "AGBLO AGONDJIHOSSOU Fifamè",
+    nomParent: "Parent de Fifamè",
+    fichierPDF: "bulletin_fifame.pdf",
+    classe: "CE1",
+    ecole: "Les Bulles de joie"
+  },
+  {
+    matricule: "CE1-2",
+    passwordHash: hashedPasswords['emmanuel'],
+    nomEleve: "AKYOH Emmanuel",
+    nomParent: "Parent d'Emmanuel",
+    fichierPDF: "bulletin_emmanuel.pdf",
+    classe: "CE1",
+    ecole: "Les Bulles de joie"
+  },
+  {
+    matricule: "CE1-3",
+    passwordHash: hashedPasswords['yinki'],
+    nomEleve: "AMADOU Yinki",
+    nomParent: "Parent de Yinki",
+    fichierPDF: "bulletin_yinki.pdf",
+    classe: "CE1",
+    ecole: "Les Bulles de joie"
+  },
+  {
+    matricule: "CE1-4",
+    passwordHash: hashedPasswords['rahama'],
+    nomEleve: "BANI Rahama",
+    nomParent: "Parent de Rahama",
+    fichierPDF: "bulletin_rahama.pdf",
+    classe: "CE1",
+    ecole: "Les Bulles de joie"
+  },
+  {
+    matricule: "CE1-5",
+    passwordHash: hashedPasswords['noham'],
+    nomEleve: "DAHOUGOU Noham",
+    nomParent: "Parent de Noham",
+    fichierPDF: "bulletin_noham.pdf",
+    classe: "CE1",
+    ecole: "Les Bulles de joie"
+  },
+  {
+    matricule: "CE1-6",
+    passwordHash: hashedPasswords['queen'],
+    nomEleve: "EDAH Queen",
+    nomParent: "Parent de Queen",
+    fichierPDF: "bulletin_queen.pdf",
+    classe: "CE1",
+    ecole: "Les Bulles de joie"
+  },
+  {
+    matricule: "CE1-7",
+    passwordHash: hashedPasswords['mékaddishem'],
+    nomEleve: "HOUEHOU Mékaddishem",
+    nomParent: "Parent de Mékaddishem",
+    fichierPDF: "bulletin_mekaddishem.pdf",
+    classe: "CE1",
+    ecole: "Les Bulles de joie"
+  },
+  {
+    matricule: "CE1-8",
+    passwordHash: hashedPasswords['faith'],
+    nomEleve: "PADONOU Faith",
+    nomParent: "Parent de Faith",
+    fichierPDF: "bulletin_faith.pdf",
+    classe: "CE1",
+    ecole: "Les Bulles de joie"
+  },
+  {
+    matricule: "CE1-9",
+    passwordHash: hashedPasswords['péniel'],
+    nomEleve: "SOVI Péniel",
+    nomParent: "Parent de Péniel",
+    fichierPDF: "bulletin_peniel.pdf",
+    classe: "CE1",
+    ecole: "Les Bulles de joie"
+  },
+  {
+    matricule: "CE1-10",
+    passwordHash: hashedPasswords['naelle'],
+    nomEleve: "TOSSAVI Naelle",
+    nomParent: "Parent de Naelle",
+    fichierPDF: "bulletin_naelle.pdf",
+    classe: "CE1",
+    ecole: "Les Bulles de joie"
+  }
+]
+
+module.exports = {
+  users,
+  verifyPassword,
+  hashPassword
+}

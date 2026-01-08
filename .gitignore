@@ -1,0 +1,12 @@
+node_modules/
+.env*
+.next/
+.out/
+uploads/bulletins/*.pdf
+!uploads/bulletins/.gitkeep
+*.log
+.DS_Store
+.idea/
+.vscode/
+coverage/
+*.backup
